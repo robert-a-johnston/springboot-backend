@@ -5,6 +5,7 @@ import org.springframework.stereotype.Repository;
 
 import net.javaguides.springboot.model.Employee;
 
+// this gets all CRUD methods from JpaRepository
 @Repository
 public interface EmployeeRepository extends JpaRepository<Employee, Long>{
 
