@@ -24,7 +24,8 @@
   - Create database in PostgreSQL
     - ``` CREATE DATABASE empoyees; ```
   - In ``` src/main/resources/application.properties ``` add 
-  ``` spring.datasource.url=jdbc:postgresql://localhost:5432/employees
+      ```
+      spring.datasource.url=jdbc:postgresql://localhost:5432/employees
       spring.datasource.username=postgres
       spring.datasource.password=root
       spring.jpa.show-sql=true
@@ -34,8 +35,8 @@
       spring.jpa.properties.hibernate.dialect = org.hibernate.dialect.PostgreSQLDialect
 
       # Hibernate ddl auto (create, create-drop, validate, update)
-      spring.jpa.hibernate.ddl-auto = update ```
-
+      spring.jpa.hibernate.ddl-auto = update 
+      ```
 - Note url, username, and password are environment specific
 - Hibernate will automatically create database tables
 ### 4 Create JPA (Java Persistence API) Entity - Employee.java
@@ -44,3 +45,24 @@
 ### 5 Create a Spring Data Repository - EmployeeRepository.java
   - Create package repository in ``` src/main/java/net/javaguides/springboot``` 
   - Create interface in EmployeeRepository.java file
+### 6 Create Custom Exception - ResourceNotFoundException.java
+  - Create package exception
+  - Create class ResourceNotFoundException
+### 7 Create Spring Rest Controller - EmployeeController.java
+  - Create package controller
+  - Create class EmployeeController
+## 8 Enable CORS on the Server
+  - Add following to EmployeeController.java
+  ```
+    @CrossOrigin(origins = "http://localhost:4200")
+    @RestController
+    @RequestMapping("/api/v1/")
+
+    public class EmployeeController { 
+  ```
+### 9 Running Spring Boot Application
+  - At command line
+    - ``` mvn spring-boot:run ```
+### 10 Test CRUD REST APIs via Postman
+  - run locally at:
+    - http://localhost:8080/api/v1/employees
